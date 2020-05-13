@@ -8,5 +8,6 @@ videoRouter.get(routes.upload, (req, res) => res.send("Upload"));
 videoRouter.get(routes.videoDetail, (req, res) => res.send("Video Detail"));
 videoRouter.get(routes.editVideo, (req, res) => res.send("Edit Video"));
 videoRouter.get(routes.deleteVideo, (req, res) => res.send("Delete Video"));
+videoRouter.get(routes.search, (req, res) => res.send("search"));
 
 export default videoRouter;
