@@ -1,15 +1,29 @@
-import { videos } from "../db";
 import routes from "../routes";
+import Video from "../models/Video";
+import Comment from "../models/Comment";
 
-export const home = (req, res) => {
-  res.render("home", { pageTitle: "Home", videos });
+export const home = async (req, res) => {
+  try {
+    const videos = await Video.find({});
+    res.render("home", { pateTitle: "Home", videos });
+  } catch (error) {
+    console.log(error);
+    res.render("home", { pateTitele: "Home", videos: [] });
+  }
 };
 
-export const search = (req, res) => {
+export const search = async (req, res) => {
   const {
     query: { term: searchingBy },
   } = req;
-  res.render("search", { pageTitle: "search", searchingBy, videos });
+
+  try {
+    const videos = await Video.find({});
+    res.render("search", { pateTitle: "search", videos });
+  } catch (error) {
+    console.log(error);
+    res.render("search", { pateTitele: "search", videos: [] });
+  }
 };
 
 export const getUpload = (req, res) =>
